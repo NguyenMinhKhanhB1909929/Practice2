@@ -8,18 +8,18 @@ import { User } from './user.model';
   styleUrls: ['./user-list.component.css'],
 })
 export class UserListComponent implements OnInit {
-  usersData: any
-  searchText:string = ''
-  userStatus:string = 'true'
-  maxItemsPerPage:number = 6
-  page:number = 1
-  sortBy:string = "fullname"
-  order:boolean | "asc" | "desc" = "asc"
+  usersData: any;
+  searchText: string = '';
+  userStatus: string = 'true';
+  maxItemsPerPage: number = 6;
+  page: number = 1;
+  sortBy: string = 'fullname';
+  order: boolean = true;
 
   constructor(private usersService: UserService) {}
   ngOnInit(): void {
-    this.usersService
-      .getUsersData()
-      .subscribe((datas) => {this.usersData = datas});
+    this.usersService.getUsersData().subscribe((datas) => {
+      this.usersData = datas;
+    });
   }
 }
